@@ -48,13 +48,13 @@ const printCells = (state) => {
   return accumalator;
 };
 
-function getNeighborsOf = ([x, y]) => [
+const getNeighborsOf = ([x, y]) => [
   [x-1, y+1], [x+ y+1], [x+1, y+1],
   [x-1, y],         [x+1, y],
   [x-1, y-1], [x, y-1], [x +1, y-1]
 ];
 
-function  getLivingNeighbors = (cell, state) => {
+const getLivingNeighbors = (cell, state) => {
   return getNeighborsOf(cell).filter((n) => contains.bind(state)(n));
 };
 
