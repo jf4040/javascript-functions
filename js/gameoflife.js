@@ -48,20 +48,20 @@ const printCells = (state) => {
   return accumalator;
 };
 
-const getNeighborsOf = ([x, y]) => [
+function getNeighborsOf = ([x, y]) => [
   [x-1, y+1], [x+ y+1], [x+1, y+1],
   [x-1, y],         [x+1, y],
   [x-1, y-1], [x, y-1], [x +1, y-1]
 ];
 
-const getLivingNeighbors = (cell, state) => {
+function  getLivingNeighbors = (cell, state) => {
   return getNeighborsOf(cell).filter((n) => contains.bind(state)(n));
 };
 
 const willBeAlive = (cell, state) => {
   const livingNeighbors = getLivingNeighbors(cell, state);
   return(
-    livingNeighbors.length ===3 || (contains.call(state, cell) && livingNeighbors.length === 2)
+    livingNeighbors.length === 3 || (contains.call(state, cell) && livingNeighbors.length === 2)
   );
 };
 
